@@ -32,5 +32,5 @@ final_space = true
     type = 'text'
     style = 'plain'
     background = 'transparent'
-    foreground = 'magenta'
+    foreground = 'cyan'
     template = "\uf061"
