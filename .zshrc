@@ -8,6 +8,7 @@ setopt hist_save_no_dups
 
 bindkey -v
 alias vim='nvim'
+export PATH="$HOME/.local/bin:$PATH"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -24,4 +25,4 @@ zinit light zsh-users/zsh-autosuggestions
 
 autoload -U compinit && compinit
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
+eval "$($HOME/.local/bin/oh-my-posh init zsh --config $HOME/.config/oh-my-posh/base.toml)"
