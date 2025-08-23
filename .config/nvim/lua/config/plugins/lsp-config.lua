@@ -7,7 +7,6 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       { 'j-hui/fidget.nvim', opts = {} },
-
       'saghen/blink.cmp',
     },
     config = function()
@@ -103,15 +102,22 @@ return {
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
-        },
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            completion = {
+                                callSnippet = 'Replace',
+                            },
+                            diagnostics = {
+                                globals = { "vim" }, -- remove 'vim undefined' warning
+                            },
+                            workspace = {
+                                library = vim.api.nvim_get_runtime_file("", true), -- runtime paths for vim.*
+                                checkThirdParty = false, -- don't prompt for other configs
+                            },
+                        },
+                    },
+                },
       }
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
@@ -120,7 +126,7 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        ensure_installed = { lua_ls }, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
         automatic_installation = false,
         handlers = {
           function(server_name)

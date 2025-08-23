@@ -20,5 +20,8 @@ require("lazy").setup({
     { import = "config.plugins" },
   },
   install = { colorscheme = { "habamax" } },
-    checker = { enabled = true },
+    checker = {
+        enabled =  false,
+        notify = false
+    }, --disables the automatinc checking for updates and pop up message
 })
