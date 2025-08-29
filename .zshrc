@@ -7,6 +7,8 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
 bindkey -v
+bindkey -s ^f "tmux-sessionizer\n"
+
 alias vim='nvim'
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
