@@ -30,3 +30,6 @@ zinit light zsh-users/zsh-autosuggestions
 autoload -U compinit && compinit
 
 eval "$($HOME/.local/bin/oh-my-posh init zsh --config $HOME/.config/oh-my-posh/base.toml)"
+
+# opencode
+export PATH=/home/janlimpens/.opencode/bin:$PATH
