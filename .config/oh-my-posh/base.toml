@@ -29,6 +29,18 @@ final_space = true
       commit_icon = '@'
 
   [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'cyan'
+    background = 'transparent'
+    template = '{{ if .Venv }}(venv) {{ end }}'
+
+      [blocks.segments.options]
+        display_mode = 'environment'
+        fetch_virtual_env = true
+
+
+  [[blocks.segments]]
     type = 'text'
     style = 'plain'
     background = 'transparent'
