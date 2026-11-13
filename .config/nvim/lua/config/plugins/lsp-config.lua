@@ -74,6 +74,7 @@ return {
         })
         require("conform").setup({
             formatters_by_ft = {
+                python = { "ruff_format"},
             }
         })
         local cmp = require('cmp')
@@ -90,6 +91,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "gopls",
+                "pyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
